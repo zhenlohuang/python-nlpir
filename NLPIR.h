@@ -21,6 +21,7 @@
 #if !defined(__NLPIR_2013_LIB_INCLUDED__)
 #define __NLPIR_2013_LIB_INCLUDED__
 
+//Modified by Killua
 /*#ifdef OS_LINUX
 	#define NLPIR_API 
 #else
@@ -41,7 +42,6 @@
 #if defined(NLPIR_JNI_EXPORTS)||defined(KEYEXTRACT_EXPORTS)
 	#define NLPIR_API 
 #endif*/
-
 #define NLPIR_API
 
 //////////////////////////////////////////////////////////////////////////
@@ -427,6 +427,7 @@ NLPIR_API int NLPIR_SetPOSmap(int nPOSmap);
 *  History    : 
 *              1.create 2005-11-10
 *********************************************************************/
+//Modified by Killua
 /*#ifdef OS_LINUX
 class  CNLPIR {
 #else

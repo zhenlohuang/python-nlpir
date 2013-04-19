@@ -68,6 +68,3 @@ def nlpir_delete_user_word(word):
     Delete a word from the  user dictionary.
     '''
     return NLPIR.NLPIR_DelUsrWord(word)
-	
-	
-	

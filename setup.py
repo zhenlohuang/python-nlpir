@@ -8,7 +8,7 @@ NLPIR_module = Extension('_NLPIR',sources=['NLPIR_wrap.cxx'], libraries = ['NLPI
 setup(name = 'NLPIR',
     version = '1.0',
     author = 'Killua',
-    description = 'python for NLPIR',
+    description = 'Python for NLPIR',
     ext_modules = [NLPIR_module],
     py_modules = ['NLPIR'],
     )
