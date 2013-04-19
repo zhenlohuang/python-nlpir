@@ -1,0 +1,41 @@
+%module NLPIR
+%{
+#define SWIG_FILE_WITH_INIT
+#include "NLPIR.h"
+%}
+#define POS_MAP_NUMBER 4
+#define ICT_POS_MAP_FIRST 1
+#define ICT_POS_MAP_SECOND 0
+#define PKU_POS_MAP_SECOND 2
+#define PKU_POS_MAP_FIRST 3
+#define POS_SIZE 40
+#define GBK_CODE 0
+#define UTF8_CODE GBK_CODE+1
+#define BIG5_CODE GBK_CODE+2
+#define GBK_FANTI_CODE GBK_CODE+3
+
+bool NLPIR_Init(const char * sDataPath=0,int encode=GBK_CODE);
+bool NLPIR_Exit();
+const char * NLPIR_ParagraphProcess(const char *sParagraph,int bPOStagged=1);
+const result_t * NLPIR_ParagraphProcessA(const char *sParagraph,int *pResultCount,bool bUserDict=true);
+int NLPIR_GetParagraphProcessAWordCount(const char *sParagraph);
+void NLPIR_ParagraphProcessAW(int nCount,result_t * result);
+double NLPIR_FileProcess(const char *sSourceFilename,const char *sResultFilename,int bPOStagged=1);
+unsigned int NLPIR_ImportUserDict(const char *sFilename);
+int NLPIR_AddUserWord(const char *sWord);//add by qp 2008.11.10
+int NLPIR_SaveTheUsrDic();
+int NLPIR_DelUsrWord(const char *sWord);
+double NLPIR_GetUniProb(const char *sWord);
+bool NLPIR_IsWord(const char *sWord);
+const char * NLPIR_GetKeyWords(const char *sLine,int nMaxKeyLimit=50,bool bWeightOut=false);
+const char * NLPIR_GetFileKeyWords(const char *sFilename,int nMaxKeyLimit=50,bool bWeightOut=false);
+const char * NLPIR_GetNewWords(const char *sLine,int nMaxKeyLimit=50,bool bWeightOut=false);
+const char * NLPIR_GetFileNewWords(const char *sFilename,int nMaxKeyLimit=50,bool bWeightOut=false);
+unsigned long NLPIR_FingerPrint(const char *sLine);
+int NLPIR_SetPOSmap(int nPOSmap);
+bool NLPIR_NWI_Start();//New Word Indentification Start
+int NLPIR_NWI_AddFile(const char *sFilename);
+bool NLPIR_NWI_AddMem(const char *sText);
+bool NLPIR_NWI_Complete();
+const char * NLPIR_NWI_GetResult(bool bWeightOut=false);
+unsigned int NLPIR_NWI_Result2UserDict();
