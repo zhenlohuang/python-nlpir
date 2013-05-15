@@ -10,5 +10,5 @@ setup(name = 'NLPIR',
     author = 'Killua',
     description = 'Python for NLPIR',
     ext_modules = [NLPIR_module],
-    py_modules = ['NLPIR'],
+    py_modules = ['NLPIR', 'PyNLPIR'],
     )
