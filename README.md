@@ -1,7 +1,3 @@
-Author: Killua<br/>
-E-mail: killua_hzl@163.com<br/>
-Blog: http://blog.yidooo.net/<br/>
-<br/>
 <h1>Description</h1>
 Python for NLPIR. NLPIR (ICTCLAS 2013) is a powerful tool for Chinese segmentation. This program supported Win32 and Linux. 
 
