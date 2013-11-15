@@ -17,3 +17,6 @@ Before installing python-nlpir, you should make sure that SWIG and Python 2.x ha
 
 <h1>Others</h1>
 If you want to know more details, you can access http://blog.yidooo.net/archives/nlpir-python-version.html
+
+<h1>Contributors</h1>
+<a href="https://github.com/killuahzl">Killua Huang</a>,&nbsp<a href="https://github.com/zzdwcm">zzdwcm</a>
