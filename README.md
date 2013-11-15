@@ -1,5 +1,6 @@
 <h1>Description</h1>
-Python for NLPIR. NLPIR (ICTCLAS 2013) is a powerful tool for Chinese segmentation. This program supported Win32 and Linux. 
+Python for NLPIR. <br/>
+NLPIR (ICTCLAS 2013) is a powerful tool for Chinese segmentation. This program supported Windows and Linux, both 32bit and 64bit platform. 
 
 <h1>Install</h1>
 Before installing python-nlpir, you should make sure that SWIG and Python 2.x have been installed already.<br/>
@@ -9,7 +10,7 @@ Before installing python-nlpir, you should make sure that SWIG and Python 2.x ha
 <b>Linux 64bit: </b>setup_linux64.sh<br/>
 
 <h1>Change Log</h1>
-<b>2013-11-15</b>
+<b>Date: 2013-11-15</b><br/>
 1) Add Windows 64bit and Linux 64bit support.<br/>
 2) Code constructure adjustment.<br/>
 3) Upgrade NLPIR to lastest version.<br/>
