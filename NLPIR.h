@@ -18,6 +18,10 @@
  * Notes:
  *                
  ****************************************************************************/
+ /****************************************************************************
+  * Modified by Killua
+  * Date: 2013-11-15  
+  ****************************************************************************/
 #if !defined(__NLPIR_2013_LIB_INCLUDED__)
 #define __NLPIR_2013_LIB_INCLUDED__
 
@@ -68,7 +72,7 @@ struct result_t{
   int	iPOS;//词性标注的编号
   int word_ID; //该词的内部ID号，如果是未登录词，设成0或者-1
   int word_type; //区分用户词典;1，是用户词典中的词；0，非用户词典中的词
-  double weight;//word weight
+  int weight;//word weight,read weight
  };
 
 #define GBK_CODE 0//默认支持GBK编码
@@ -86,14 +90,14 @@ struct result_t{
  *  Parameters : const char * sInitDirPath=NULL
  *				 sDataPath:  Path where Data directory stored.
  *				 the default value is NULL, it indicates the initial directory is current working directory path
- *
+ *				 encode: encoding code;
+ *				 sLicenseCode: license code for unlimited usage. common user ignore it
  *  Returns    : success or fail
  *  Author     : Kevin Zhang  
  *  History    : 
- *              1.create 2002-8-6
+ *              1.create 2013-6-8
  *********************************************************************/
-NLPIR_API bool NLPIR_Init(const char * sDataPath=0,int encode=GBK_CODE);
-
+NLPIR_API bool NLPIR_Init(const char * sDataPath=0,int encode=GBK_CODE,const char * sLicenceCode=0);
 /*********************************************************************
  *
  *  Func Name  : NLPIR_Exit
@@ -330,7 +334,6 @@ NLPIR_API const char * NLPIR_GetKeyWords(const char *sLine,int nMaxKeyLimit=50,b
 *              1.create 2012/11/12
 *********************************************************************/
 NLPIR_API const char * NLPIR_GetFileKeyWords(const char *sFilename,int nMaxKeyLimit=50,bool bWeightOut=false);
-
 /*********************************************************************
 *
 *  Func Name  : NLPIR_GetNewWords
@@ -443,6 +446,10 @@ class  __declspec(dllexport) CNLPIR {
 
 		bool SetAvailable(bool bAvailable=true);//当前线程释放该类，可为下一个线程使用
 		bool IsAvailable();//判断当前分词器是否被线程占用
+		unsigned int GetHandle()
+		{
+			return m_nHandle;
+		}
 private:
 		unsigned int m_nHandle;//该成员作为该类的Handle值，由系统自动分配，用户不可修改
 		bool m_bAvailable;//该成员作为多线程共享控制的参数，由系统自动分配，用户不可修改

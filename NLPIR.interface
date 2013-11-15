@@ -14,7 +14,7 @@
 #define BIG5_CODE GBK_CODE+2
 #define GBK_FANTI_CODE GBK_CODE+3
 
-bool NLPIR_Init(const char * sDataPath=0,int encode=GBK_CODE);
+bool NLPIR_Init(const char * sDataPath=0,int encode=GBK_CODE,const char*sLicenceCode=0);
 bool NLPIR_Exit();
 const char * NLPIR_ParagraphProcess(const char *sParagraph,int bPOStagged=1);
 const result_t * NLPIR_ParagraphProcessA(const char *sParagraph,int *pResultCount,bool bUserDict=true);
