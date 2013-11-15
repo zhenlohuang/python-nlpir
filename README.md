@@ -1,5 +1,5 @@
 <h1>Description</h1>
-Python for NLPIR. <br/>
+This open source project is Python API for NLPIR. <br/>
 NLPIR (ICTCLAS 2013) is a powerful tool for Chinese segmentation. This program supported Windows and Linux, both 32bit and 64bit platform. 
 
 <h1>Install</h1>
