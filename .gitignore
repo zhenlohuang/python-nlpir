@@ -4,3 +4,4 @@ NLPIR.py
 NLPIR_wrap.cxx
 _NLPIR.so
 build/
+*.pyc
