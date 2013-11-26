@@ -1,0 +1,6 @@
+# Ignore the generated files
+
+NLPIR.py
+NLPIR_wrap.cxx
+_NLPIR.so
+build/
