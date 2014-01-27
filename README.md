@@ -1,23 +1,31 @@
-<h1>Description</h1>
-This open source project is Python API for NLPIR. <br/>
-NLPIR (ICTCLAS 2013) is a powerful tool for Chinese segmentation. This program supported Windows and Linux, both 32bit and 64bit platform. 
+Welcome to python-nlpir
+=====================
+This open source project is a python wrapper for NLPIR.  
+NLPIR is a powerful tool for Chinese segmentation. This program supported Windows and Linux, both 32bit and 64bit platform. 
 
-<h1>Install</h1>
-Before installing python-nlpir, you should make sure that SWIG and Python 2.x have been installed already.<br/>
-<b>Windows 32bit: </b>setup_win32.bat<br/>
-<b>Windows 64bit: </b>setup_win64.bat<br/>
-<b>Linux 32bit: </b>setup_linux32.sh<br/>
-<b>Linux 64bit: </b>setup_linux64.sh<br/>
+**Current Version: v1.1**
 
-<h1>Change Log</h1>
-<b>Date: 2013-11-15</b><br/>
-1) Add Windows 64bit and Linux 64bit support.<br/>
-2) Code constructure adjustment.<br/>
-3) Upgrade NLPIR to lastest version.<br/>
+# Change Log
+### Version 2.0
+* Uprgrade NLPIR core library from NPLIR to NPLIR2014.
 
-<h1>Others</h1>
-If you want to know more details, you can access http://blog.yidooo.net/archives/nlpir-python-version.html
+### Version 1.1
+* Add Windows 64bit and Linux 64bit supported.
+* Code constructure adjustment.
+* Upgrade NLPIR2013 core library.
+* Add installation scripts for each platform.
 
-<h1>Contributors</h1>
-<a href="https://github.com/killuahzl">Killua Huang</a><br/>
-<a href="https://github.com/zzdwcm">zzdwcm</a>
+
+# Installation
+Before installing python-nlpir, you should make sure that SWIG and Python 2.x have been installed already.
+* Windows 32bit: setup_win32.bat
+* Windows 64bit: setup_win64.bat
+* Linux 32bit: setup_linux32.sh
+* Linux 64bit: setup_linux64.sh
+
+# Others
+If you want to know more details, you can access [my blog](http://blog.yidooo.net/archives/nlpir-python-version.html).
+
+# Contributors
+* [Killua Huang](https://github.com/killuahzl)
+* [zzdwcm](https://github.com/zzdwcm)
