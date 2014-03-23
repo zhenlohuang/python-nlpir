@@ -22,6 +22,8 @@
 #if !defined(__NLPIR_ICTCLAS_2014_H_INCLUDED__)
 #define __NLPIR_ICTCLAS_2014_H_INCLUDED__
 
+#define OS_LINUX linux
+
 #ifdef OS_LINUX
 	#define NLPIR_API extern "C" 
 #else
@@ -32,14 +34,14 @@
 #endif
 #endif
 
-//ÄÚ²¿¼æÈİÊ¹ÓÃ
+//å†…éƒ¨å…¼å®¹ä½¿ç”¨
 #if defined(ICTCLAS_JNI_EXPORTS)||defined(KEYEXTRACT_EXPORTS)||defined(NLPIR_JNI_EXPORTS)||defined(LJSUMMARY_EXPORTS)||defined(LJSUMMARY_JNI_EXPORTS)||defined(DOCEXTRACTOR_EXPORTS)
 	#define NLPIR_API 
 #endif
 
 //////////////////////////////////////////////////////////////////////////
 //
-//ÒÔÏÂ¶¨ÒåÎª¼æÈİICTCLASÒÔÇ°µÄ°æ±¾
+//ä»¥ä¸‹å®šä¹‰ä¸ºå…¼å®¹ICTCLASä»¥å‰çš„ç‰ˆæœ¬
 //
 //////////////////////////////////////////////////////////////////////////
 #define ICTCLAS_Init NLPIR_Init
@@ -61,26 +63,26 @@
 
 
 #define POS_MAP_NUMBER 4 //add by qp 2008.11.25
-#define ICT_POS_MAP_FIRST 1  //¼ÆËãËùÒ»¼¶±ê×¢¼¯
-#define ICT_POS_MAP_SECOND 0 //¼ÆËãËù¶ş¼¶±ê×¢¼¯
-#define PKU_POS_MAP_SECOND 2 //±±´ó¶ş¼¶±ê×¢¼¯
-#define PKU_POS_MAP_FIRST 3	//±±´óÒ»¼¶±ê×¢¼¯
+#define ICT_POS_MAP_FIRST 1  //è®¡ç®—æ‰€ä¸€çº§æ ‡æ³¨é›†
+#define ICT_POS_MAP_SECOND 0 //è®¡ç®—æ‰€äºŒçº§æ ‡æ³¨é›†
+#define PKU_POS_MAP_SECOND 2 //åŒ—å¤§äºŒçº§æ ‡æ³¨é›†
+#define PKU_POS_MAP_FIRST 3	//åŒ—å¤§ä¸€çº§æ ‡æ³¨é›†
 #define  POS_SIZE 40
 
 struct result_t{
-  int start; //start position,´ÊÓïÔÚÊäÈë¾ä×ÓÖĞµÄ¿ªÊ¼Î»ÖÃ
-  int length; //length,´ÊÓïµÄ³¤¶È
-  char  sPOS[POS_SIZE];//word type£¬´ÊĞÔIDÖµ£¬¿ÉÒÔ¿ìËÙµÄ»ñÈ¡´ÊĞÔ±í
-  int	iPOS;//´ÊĞÔ±ê×¢µÄ±àºÅ
-  int word_ID; //¸Ã´ÊµÄÄÚ²¿IDºÅ£¬Èç¹ûÊÇÎ´µÇÂ¼´Ê£¬Éè³É0»òÕß-1
-  int word_type; //Çø·ÖÓÃ»§´Êµä;1£¬ÊÇÓÃ»§´ÊµäÖĞµÄ´Ê£»0£¬·ÇÓÃ»§´ÊµäÖĞµÄ´Ê
+  int start; //start position,è¯è¯­åœ¨è¾“å…¥å¥å­ä¸­çš„å¼€å§‹ä½ç½®
+  int length; //length,è¯è¯­çš„é•¿åº¦
+  char  sPOS[POS_SIZE];//word typeï¼Œè¯æ€§IDå€¼ï¼Œå¯ä»¥å¿«é€Ÿçš„è·å–è¯æ€§è¡¨
+  int	iPOS;//è¯æ€§æ ‡æ³¨çš„ç¼–å·
+  int word_ID; //è¯¥è¯çš„å†…éƒ¨IDå·ï¼Œå¦‚æœæ˜¯æœªç™»å½•è¯ï¼Œè®¾æˆ0æˆ–è€…-1
+  int word_type; //åŒºåˆ†ç”¨æˆ·è¯å…¸;1ï¼Œæ˜¯ç”¨æˆ·è¯å…¸ä¸­çš„è¯ï¼›0ï¼Œéç”¨æˆ·è¯å…¸ä¸­çš„è¯
   int weight;//word weight,read weight
  };
 
-#define GBK_CODE 0//Ä¬ÈÏÖ§³ÖGBK±àÂë
-#define UTF8_CODE GBK_CODE+1//UTF8±àÂë
-#define BIG5_CODE GBK_CODE+2//BIG5±àÂë
-#define GBK_FANTI_CODE GBK_CODE+3//GBK±àÂë£¬ÀïÃæ°üº¬·±Ìå×Ö
+#define GBK_CODE 0//é»˜è®¤æ”¯æŒGBKç¼–ç 
+#define UTF8_CODE GBK_CODE+1//UTF8ç¼–ç 
+#define BIG5_CODE GBK_CODE+2//BIG5ç¼–ç 
+#define GBK_FANTI_CODE GBK_CODE+3//GBKç¼–ç ï¼Œé‡Œé¢åŒ…å«ç¹ä½“å­—
 
 /*********************************************************************
  *
@@ -126,8 +128,8 @@ NLPIR_API bool NLPIR_Exit();
  *  Parameters : sParagraph: The source paragraph 
  *               
  *				 bPOStagged:Judge whether need POS tagging, 0 for no tag;default:1
- *				i.e.  ÕÅ»ªÆ½ÓÚ1978Äê3ÔÂ9ÈÕ³öÉúÓÚ½­Î÷Ê¡²¨ÑôÏØ¡£
- *					Result: ÕÅ»ªÆ½/nr  ÓÚ/p  1978Äê/t  3ÔÂ/t  9ÈÕ/t  ³öÉúÓÚ/v  ½­Î÷Ê¡/ns  ²¨ÑôÏØ/ns  ¡£/w   
+ *				i.e.  å¼ åå¹³äº1978å¹´3æœˆ9æ—¥å‡ºç”Ÿäºæ±Ÿè¥¿çœæ³¢é˜³å¿ã€‚
+ *					Result: å¼ åå¹³/nr  äº/p  1978å¹´/t  3æœˆ/t  9æ—¥/t  å‡ºç”Ÿäº/v  æ±Ÿè¥¿çœ/ns  æ³¢é˜³å¿/ns  ã€‚/w   
  *  Returns    : the result buffer pointer 
  *
  *  Author     : Kevin Zhang  
@@ -235,7 +237,7 @@ NLPIR_API unsigned int NLPIR_ImportUserDict(const char *sFilename);
 *
 *  Func Name  : NLPIR_AddUserWord
 *
-*  Description: add a word to the user dictionary ,example:ÄãºÃ	
+*  Description: add a word to the user dictionary ,example:ä½ å¥½	
 *													 i3s	n
 *
 *  Parameters : sFilename: file name
@@ -324,8 +326,8 @@ NLPIR_API bool NLPIR_IsWord(const char *sWord);
 				bArguOut,whether  the keyword weight output
 				nMaxKeyLimt:maximum of key words, up to 50
 *  Returns    : keywords list like:
-*               "¿ÆÑ§·¢Õ¹¹Û ºê¹Û¾­¼Ã " or
-				"¿ÆÑ§·¢Õ¹¹Û 23.80 ºê¹Û¾­¼Ã 12.20" with weight
+*               "ç§‘å­¦å‘å±•è§‚ å®è§‚ç»æµ " or
+				"ç§‘å­¦å‘å±•è§‚ 23.80 å®è§‚ç»æµ 12.20" with weight
 
 *
 *  Author     :   
@@ -344,8 +346,8 @@ NLPIR_API const char * NLPIR_GetKeyWords(const char *sLine,int nMaxKeyLimit=50,b
 				bArguOut,whether  the keyword weight output
 				nMaxKeyLimt:maximum of key words, up to 50
 *  Returns    : keywords list like:
-*               "¿ÆÑ§·¢Õ¹¹Û ºê¹Û¾­¼Ã " or
-				"¿ÆÑ§·¢Õ¹¹Û 23.80 ºê¹Û¾­¼Ã 12.20" with weight
+*               "ç§‘å­¦å‘å±•è§‚ å®è§‚ç»æµ " or
+				"ç§‘å­¦å‘å±•è§‚ 23.80 å®è§‚ç»æµ 12.20" with weight
 
 *
 *  Author     :   
@@ -363,8 +365,8 @@ NLPIR_API const char * NLPIR_GetFileKeyWords(const char *sFilename,int nMaxKeyLi
 				bArguOut,whether  the keyword weight output
 				nMaxKeyLimt:maximum of key words, up to 50
 *  Returns    : new words list like:
-*               "¿ÆÑ§·¢Õ¹¹Û ŒÅË¿ "or
-				"¿ÆÑ§·¢Õ¹¹Û 23.80 ŒÅË¿ 12.20" with weight
+*               "ç§‘å­¦å‘å±•è§‚ å±Œä¸ "or
+				"ç§‘å­¦å‘å±•è§‚ 23.80 å±Œä¸ 12.20" with weight
 *
 *  Author     :   
 *  History    : 
@@ -382,8 +384,8 @@ NLPIR_API const char * NLPIR_GetNewWords(const char *sLine,int nMaxKeyLimit=50,b
 				bArguOut,whether  the keyword weight output
 				nMaxKeyLimt:maximum of key words, up to 50
 *  Returns    : keywords list like:
-*               "¿ÆÑ§·¢Õ¹¹Û ºê¹Û¾­¼Ã " or
-				"¿ÆÑ§·¢Õ¹¹Û 23.80 ºê¹Û¾­¼Ã 12.20" with weight
+*               "ç§‘å­¦å‘å±•è§‚ å®è§‚ç»æµ " or
+				"ç§‘å­¦å‘å±•è§‚ 23.80 å®è§‚ç»æµ 12.20" with weight
 
 *
 *  Author     :   
@@ -412,10 +414,10 @@ NLPIR_API unsigned long NLPIR_FingerPrint(const char *sLine);
 *
 *  Description: select which pos map will use
 *
-*  Parameters :nPOSmap, ICT_POS_MAP_FIRST  ¼ÆËãËùÒ»¼¶±ê×¢¼¯
-						ICT_POS_MAP_SECOND  ¼ÆËãËù¶ş¼¶±ê×¢¼¯
-						PKU_POS_MAP_SECOND   ±±´ó¶ş¼¶±ê×¢¼¯
-						PKU_POS_MAP_FIRST 	  ±±´óÒ»¼¶±ê×¢¼¯
+*  Parameters :nPOSmap, ICT_POS_MAP_FIRST  è®¡ç®—æ‰€ä¸€çº§æ ‡æ³¨é›†
+						ICT_POS_MAP_SECOND  è®¡ç®—æ‰€äºŒçº§æ ‡æ³¨é›†
+						PKU_POS_MAP_SECOND   åŒ—å¤§äºŒçº§æ ‡æ³¨é›†
+						PKU_POS_MAP_FIRST 	  åŒ—å¤§ä¸€çº§æ ‡æ³¨é›†
 *  Returns    : 0, failed; else, success
 *
 *  Author     :   
@@ -428,11 +430,11 @@ NLPIR_API int NLPIR_SetPOSmap(int nPOSmap);
 /*********************************************************************
 *
 *  class CNLPIR
-*   ÃèÊö£º
-*		   NLPIR Àà£¬Ê¹ÓÃÖ®Ç°±ØĞëµ÷ÓÃNLPIR_Init(),ÍË³ö±ØĞëµ÷ÓÃNLPIR_Exit
-*		   ÔÚÊ¹ÓÃ¹ı³ÌÖĞ¿ÉÒÔÊ¹ÓÃ¶à·İCNLPIR£¬Ö§³Ö¶àÏß³Ì·Ö´Ê´¦Àí
-*			Ã¿¸öÏß³ÌÏÈµ÷ÓÃGetActiveInstance£¬»ñÈ¡´¦ÀíÀà£¬È»ºó£¬ÉèÖÃSetAvailable(false)ĞûÊ¾Ïß³ÌÖ÷È¨£¬
-*			´¦ÀíÍê³Éºó£¬SetAvailable(true)ÊÍ·ÅÏß³ÌÖ÷È¨
+*   æè¿°ï¼š
+*		   NLPIR ç±»ï¼Œä½¿ç”¨ä¹‹å‰å¿…é¡»è°ƒç”¨NLPIR_Init(),é€€å‡ºå¿…é¡»è°ƒç”¨NLPIR_Exit
+*		   åœ¨ä½¿ç”¨è¿‡ç¨‹ä¸­å¯ä»¥ä½¿ç”¨å¤šä»½CNLPIRï¼Œæ”¯æŒå¤šçº¿ç¨‹åˆ†è¯å¤„ç†
+*			æ¯ä¸ªçº¿ç¨‹å…ˆè°ƒç”¨GetActiveInstanceï¼Œè·å–å¤„ç†ç±»ï¼Œç„¶åï¼Œè®¾ç½®SetAvailable(false)å®£ç¤ºçº¿ç¨‹ä¸»æƒï¼Œ
+*			å¤„ç†å®Œæˆåï¼ŒSetAvailable(true)é‡Šæ”¾çº¿ç¨‹ä¸»æƒ
 *  History    : 
 *              1.create 2005-11-10
 *********************************************************************/
@@ -445,33 +447,33 @@ class  __declspec(dllexport) CNLPIR {
 		CNLPIR();
 		~CNLPIR();
 		double FileProcess(const char *sSourceFilename,const char *sResultFilename,int bPOStagged=1);
-		//Process a file£¬ÀàËÆÓÚCÏÂµÄNLPIR_FileProcess
+		//Process a fileï¼Œç±»ä¼¼äºCä¸‹çš„NLPIR_FileProcess
 		const char * ParagraphProcess(const char *sLine,int bPOStagged=1); 
-		//Process a file£¬ÀàËÆÓÚCÏÂµÄNLPIR_ParagraphProcess
+		//Process a fileï¼Œç±»ä¼¼äºCä¸‹çš„NLPIR_ParagraphProcess
 		const result_t * ParagraphProcessA(const char *sParagraph,int *pResultCount,bool bUserDict=true);
-		//Process a file£¬ÀàËÆÓÚCÏÂµÄNLPIR_ParagraphProcessA
+		//Process a fileï¼Œç±»ä¼¼äºCä¸‹çš„NLPIR_ParagraphProcessA
 
 		void ParagraphProcessAW(int nCount,result_t * result);
 		int GetParagraphProcessAWordCount(const char *sParagraph);
 
 		const char * GetKeyWords(const char *sLine,int nMaxKeyLimit,bool bWeightOut);
-		//»ñÈ¡¹Ø¼ü´Ê
+		//è·å–å…³é”®è¯
 		const char * GetFileKeyWords(const char *sFilename,int nMaxKeyLimit,bool bWeightOut);
-		//´ÓÎÄ±¾ÎÄ¼şÖĞ»ñÈ¡¹Ø¼ü´Ê
+		//ä»æ–‡æœ¬æ–‡ä»¶ä¸­è·å–å…³é”®è¯
 		const char * GetNewWords(const char *sFilename,int nMaxKeyLimit,bool bWeightOut);
-		//»ñÈ¡ĞÂ´Ê
+		//è·å–æ–°è¯
 		const char * GetFileNewWords(const char *sFilename,int nMaxKeyLimit,bool bWeightOut);
-		//´ÓÎÄ±¾ÎÄ¼şÖĞ»ñÈ¡ĞÂ´Ê
+		//ä»æ–‡æœ¬æ–‡ä»¶ä¸­è·å–æ–°è¯
 
-		bool SetAvailable(bool bAvailable=true);//µ±Ç°Ïß³ÌÊÍ·Å¸ÃÀà£¬¿ÉÎªÏÂÒ»¸öÏß³ÌÊ¹ÓÃ
-		bool IsAvailable();//ÅĞ¶Ïµ±Ç°·Ö´ÊÆ÷ÊÇ·ñ±»Ïß³ÌÕ¼ÓÃ
+		bool SetAvailable(bool bAvailable=true);//å½“å‰çº¿ç¨‹é‡Šæ”¾è¯¥ç±»ï¼Œå¯ä¸ºä¸‹ä¸€ä¸ªçº¿ç¨‹ä½¿ç”¨
+		bool IsAvailable();//åˆ¤æ–­å½“å‰åˆ†è¯å™¨æ˜¯å¦è¢«çº¿ç¨‹å ç”¨
 		unsigned int GetHandle()
 		{
 			return m_nHandle;
 		}
 private:
-		unsigned int m_nHandle;//¸Ã³ÉÔ±×÷Îª¸ÃÀàµÄHandleÖµ£¬ÓÉÏµÍ³×Ô¶¯·ÖÅä£¬ÓÃ»§²»¿ÉĞŞ¸Ä
-		bool m_bAvailable;//¸Ã³ÉÔ±×÷Îª¶àÏß³Ì¹²Ïí¿ØÖÆµÄ²ÎÊı£¬ÓÉÏµÍ³×Ô¶¯·ÖÅä£¬ÓÃ»§²»¿ÉĞŞ¸Ä
+		unsigned int m_nHandle;//è¯¥æˆå‘˜ä½œä¸ºè¯¥ç±»çš„Handleå€¼ï¼Œç”±ç³»ç»Ÿè‡ªåŠ¨åˆ†é…ï¼Œç”¨æˆ·ä¸å¯ä¿®æ”¹
+		bool m_bAvailable;//è¯¥æˆå‘˜ä½œä¸ºå¤šçº¿ç¨‹å…±äº«æ§åˆ¶çš„å‚æ•°ï¼Œç”±ç³»ç»Ÿè‡ªåŠ¨åˆ†é…ï¼Œç”¨æˆ·ä¸å¯ä¿®æ”¹
 
 };
 
@@ -479,7 +481,7 @@ private:
 *
 *  Func Name  : GetActiveInstance
 *
-*  Description: »ñÈ¡¿ÉÓÃµÄCNLPIRÀà£¬ÊÊÓÃÓÚ¶àÏß³Ì¿ª·¢£¬ÏÈ»ñÈ¡¿ÉÓÃµÄCNLP£¬ÔÙµ÷ÓÃÆäÖĞµÄ¹¦ÄÜ
+*  Description: è·å–å¯ç”¨çš„CNLPIRç±»ï¼Œé€‚ç”¨äºå¤šçº¿ç¨‹å¼€å‘ï¼Œå…ˆè·å–å¯ç”¨çš„CNLPï¼Œå†è°ƒç”¨å…¶ä¸­çš„åŠŸèƒ½
 
 *
 *  Parameters : None
@@ -493,15 +495,15 @@ NLPIR_API CNLPIR* GetActiveInstance();
 
 /*********************************************************************
 *
-*  ÒÔÏÂº¯ÊıÎª2013°æ±¾×¨ÃÅÕë¶ÔĞÂ´Ê·¢ÏÖµÄ¹ı³Ì£¬Ò»°ã½¨ÒéÍÑ»úÊµÏÖ£¬²»ÒËÔÚÏß´¦Àí
-*  ĞÂ´ÊÊ¶±ğÍê³Éºó£¬ÔÙ×Ô¶¯µ¼Èëµ½·Ö´ÊÏµÍ³ÖĞ£¬¼´¿ÉÍê³É
-*  º¯ÊıÒÔNLPIR_NWI(New Word Identification)¿ªÍ·
+*  ä»¥ä¸‹å‡½æ•°ä¸º2013ç‰ˆæœ¬ä¸“é—¨é’ˆå¯¹æ–°è¯å‘ç°çš„è¿‡ç¨‹ï¼Œä¸€èˆ¬å»ºè®®è„±æœºå®ç°ï¼Œä¸å®œåœ¨çº¿å¤„ç†
+*  æ–°è¯è¯†åˆ«å®Œæˆåï¼Œå†è‡ªåŠ¨å¯¼å…¥åˆ°åˆ†è¯ç³»ç»Ÿä¸­ï¼Œå³å¯å®Œæˆ
+*  å‡½æ•°ä»¥NLPIR_NWI(New Word Identification)å¼€å¤´
 *********************************************************************/
 /*********************************************************************
 *
 *  Func Name  : NLPIR_NWI_Start
 *
-*  Description: Æô¶¯ĞÂ´ÊÊ¶±ğ
+*  Description: å¯åŠ¨æ–°è¯è¯†åˆ«
 
 *
 *  Parameters : None
@@ -516,10 +518,10 @@ NLPIR_API bool NLPIR_NWI_Start();//New Word Indentification Start
 *
 *  Func Name  : NLPIR_NWI_AddFile
 *
-*  Description: ÍùĞÂ´ÊÊ¶±ğÏµÍ³ÖĞÌí¼Ó´ıÊ¶±ğĞÂ´ÊµÄÎÄ±¾ÎÄ¼ş
-*				ĞèÒªÔÚÔËĞĞNLPIR_NWI_Start()Ö®ºó£¬²ÅÓĞĞ§
+*  Description: å¾€æ–°è¯è¯†åˆ«ç³»ç»Ÿä¸­æ·»åŠ å¾…è¯†åˆ«æ–°è¯çš„æ–‡æœ¬æ–‡ä»¶
+*				éœ€è¦åœ¨è¿è¡ŒNLPIR_NWI_Start()ä¹‹åï¼Œæ‰æœ‰æ•ˆ
 *
-*  Parameters : const char *sFilename£ºÎÄ¼şÃû
+*  Parameters : const char *sFilenameï¼šæ–‡ä»¶å
 *  Returns    : bool, true:success, false:fail
 *
 *  Author     : Kevin Zhang
@@ -531,10 +533,10 @@ NLPIR_API int  NLPIR_NWI_AddFile(const char *sFilename);
 *
 *  Func Name  : NLPIR_NWI_AddMem
 *
-*  Description: ÍùĞÂ´ÊÊ¶±ğÏµÍ³ÖĞÌí¼ÓÒ»¶Î´ıÊ¶±ğĞÂ´ÊµÄÄÚ´æ
-*				ĞèÒªÔÚÔËĞĞNLPIR_NWI_Start()Ö®ºó£¬²ÅÓĞĞ§
+*  Description: å¾€æ–°è¯è¯†åˆ«ç³»ç»Ÿä¸­æ·»åŠ ä¸€æ®µå¾…è¯†åˆ«æ–°è¯çš„å†…å­˜
+*				éœ€è¦åœ¨è¿è¡ŒNLPIR_NWI_Start()ä¹‹åï¼Œæ‰æœ‰æ•ˆ
 *
-*  Parameters : const char *sFilename£ºÎÄ¼şÃû
+*  Parameters : const char *sFilenameï¼šæ–‡ä»¶å
 *  Returns    : bool, true:success, false:fail
 *
 *  Author     : Kevin Zhang
@@ -546,8 +548,8 @@ NLPIR_API bool NLPIR_NWI_AddMem(const char *sText);
 *
 *  Func Name  : NLPIR_NWI_Complete
 *
-*  Description: ĞÂ´ÊÊ¶±ğÌí¼ÓÄÚÈİ½áÊø
-*				ĞèÒªÔÚÔËĞĞNLPIR_NWI_Start()Ö®ºó£¬²ÅÓĞĞ§
+*  Description: æ–°è¯è¯†åˆ«æ·»åŠ å†…å®¹ç»“æŸ
+*				éœ€è¦åœ¨è¿è¡ŒNLPIR_NWI_Start()ä¹‹åï¼Œæ‰æœ‰æ•ˆ
 *
 *  Parameters : None
 *  Returns    : bool, true:success, false:fail
@@ -556,31 +558,31 @@ NLPIR_API bool NLPIR_NWI_AddMem(const char *sText);
 *  History    : 
 *              1.create 2012/11/23
 *********************************************************************/
-NLPIR_API bool NLPIR_NWI_Complete();//ĞÂ´Ê
+NLPIR_API bool NLPIR_NWI_Complete();//æ–°è¯
 /*********************************************************************
 *
 *  Func Name  : NLPIR_NWI_GetResult
 *
-*  Description: »ñÈ¡ĞÂ´ÊÊ¶±ğµÄ½á¹û
-*				ĞèÒªÔÚÔËĞĞNLPIR_NWI_Complete()Ö®ºó£¬²ÅÓĞĞ§
+*  Description: è·å–æ–°è¯è¯†åˆ«çš„ç»“æœ
+*				éœ€è¦åœ¨è¿è¡ŒNLPIR_NWI_Complete()ä¹‹åï¼Œæ‰æœ‰æ•ˆ
 *
-*  Parameters : bWeightOut£ºÊÇ·ñĞèÒªÊä³öÃ¿¸öĞÂ´ÊµÄÈ¨ÖØ²ÎÊı
+*  Parameters : bWeightOutï¼šæ˜¯å¦éœ€è¦è¾“å‡ºæ¯ä¸ªæ–°è¯çš„æƒé‡å‚æ•°
 *
-*  Returns    : Êä³ö¸ñÊ½Îª
-*				¡¾ĞÂ´Ê1¡¿ ¡¾È¨ÖØ1¡¿ ¡¾ĞÂ´Ê2¡¿ ¡¾È¨ÖØ2¡¿ ... 
+*  Returns    : è¾“å‡ºæ ¼å¼ä¸º
+*				ã€æ–°è¯1ã€‘ ã€æƒé‡1ã€‘ ã€æ–°è¯2ã€‘ ã€æƒé‡2ã€‘ ... 
 *
 *  Author     : Kevin Zhang
 *  History    : 
 *              1.create 2012/11/23
 *********************************************************************/
-NLPIR_API const char * NLPIR_NWI_GetResult(bool bWeightOut=false);//Êä³öĞÂ´ÊÊ¶±ğ½á¹û
+NLPIR_API const char * NLPIR_NWI_GetResult(bool bWeightOut=false);//è¾“å‡ºæ–°è¯è¯†åˆ«ç»“æœ
 /*********************************************************************
 *
 *  Func Name  : NLPIR_NWI_Result2UserDict
 *
-*  Description: ½«ĞÂ´ÊÊ¶±ğ½á¹ûµ¼Èëµ½ÓÃ»§´ÊµäÖĞ
-*				ĞèÒªÔÚÔËĞĞNLPIR_NWI_Complete()Ö®ºó£¬²ÅÓĞĞ§
-*				Èç¹ûĞèÒª½«ĞÂ´Ê½á¹ûÓÀ¾Ã±£´æ£¬½¨ÒéÔÚÖ´ĞĞNLPIR_SaveTheUsrDic
+*  Description: å°†æ–°è¯è¯†åˆ«ç»“æœå¯¼å…¥åˆ°ç”¨æˆ·è¯å…¸ä¸­
+*				éœ€è¦åœ¨è¿è¡ŒNLPIR_NWI_Complete()ä¹‹åï¼Œæ‰æœ‰æ•ˆ
+*				å¦‚æœéœ€è¦å°†æ–°è¯ç»“æœæ°¸ä¹…ä¿å­˜ï¼Œå»ºè®®åœ¨æ‰§è¡ŒNLPIR_SaveTheUsrDic
 *  Parameters : None
 *  Returns    : bool, true:success, false:fail
 *
@@ -588,6 +590,6 @@ NLPIR_API const char * NLPIR_NWI_GetResult(bool bWeightOut=false);//Êä³öĞÂ´ÊÊ¶±ğ
 *  History    : 
 *              1.create 2012/11/23
 *********************************************************************/
-NLPIR_API unsigned int  NLPIR_NWI_Result2UserDict();//ĞÂ´ÊÊ¶±ğ½á¹û×ªÎªÓÃ»§´Êµä,·µ»ØĞÂ´Ê½á¹ûÊıÄ¿
+NLPIR_API unsigned int  NLPIR_NWI_Result2UserDict();//æ–°è¯è¯†åˆ«ç»“æœè½¬ä¸ºç”¨æˆ·è¯å…¸,è¿”å›æ–°è¯ç»“æœæ•°ç›®
 
 #endif//#define __NLPIR_ICTCLAS_2014_H_INCLUDED__
