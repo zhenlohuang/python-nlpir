@@ -1,0 +1,12 @@
+24小时降雪量 n
+24小时降雨量 n
+863计划   n
+ABC防护训练 n
+APEC会议  n
+BB机 n
+BP机 n
+C2系统    n
+C3I系统   n
+C3系统    n
+C4ISR系统 n
+C4I系统   n
