@@ -1,5 +1,5 @@
 swig -c++ -python NLPIR.interface
-copy .\win32\NLPIR.dll %SYSTEMROOT%\system32\ 
+copy .\lib\win32\NLPIR.dll %SYSTEMROOT%\system32\
 python setup.py build_ext --inplace
 python setup.py install
 pause
