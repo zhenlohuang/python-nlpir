@@ -45,7 +45,7 @@ def install_nlpir():
 
     lib_dir = os.path.join(os.curdir, 'lib', ('linux' if OS_VERSION == 'Linux' else 'win') + OS_BITS.replace('bit', ''))
     if OS_VERSION == 'Linux':
-        lib_target = os.path.join('/usr', 'lib' + ('' if OS_BITS == '32bit' else '64'))
+        lib_target = os.path.join('/usr', 'lib')
     elif OS_VERSION == 'Windows':
         lib_target = os.path.join(os.environ['SYSTEMROOT'], 'system32')
         pass
