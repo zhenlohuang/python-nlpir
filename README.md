@@ -28,3 +28,6 @@ NLPIR is a powerful tool for Chinese segmentation. This program supported Window
 
 # Others
 If you want to know more details, you can access [my blog](http://blog.yidooo.net/archives/nlpir-python-version.html).
+
+# Links
+* NLPIR Home: [http://www.nlpir.org/](http://www.nlpir.org/)
